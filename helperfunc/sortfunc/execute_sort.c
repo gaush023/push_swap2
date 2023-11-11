@@ -6,7 +6,7 @@
 /*   By: sagemura <sagemura@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 22:16:16 by sagemura          #+#    #+#             */
-/*   Updated: 2023/10/29 17:21:17 by sagemura         ###   ########.fr       */
+/*   Updated: 2023/11/11 13:18:33 by sagemura         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,5 @@ void	execute_sort(t_list **stack_a, t_list **stack_b)
 	if (i < 4)
 		magic_sort_3(stack_a);
 	else
-		sort_bigstacks(stack_a, stack_b);
-	// print_stacks(stack_a, stack_b);
+		bigstacks_sort(stack_a, stack_b);
 }

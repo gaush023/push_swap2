@@ -31,21 +31,8 @@ void	ft_rr(t_list **stack_a, t_list **stack_b);
 void	ft_rra(t_list **stack_a);
 void	ft_rrb(t_list **stack_b);
 void	ft_rrr(t_list **stack_a, t_list **stack_b);
-void	magic_sort_3(t_list **stack_a);
 void	execute_sort(t_list **stack_a, t_list **stack_b);
-void	sort_bigstacks(t_list **stack_a, t_list **stack_b);
-void	situation_two(t_list **stack_a, t_list **stack_b, int bottom_b_value);
-void	situation_three(t_list **stack_a, t_list **stack_b, int bottom_b_value,
-			int bottom_a_value);
-void	situation_three_type_a(t_list **stack_a, t_list **stack_b,
-			int bottom_b_value);
-void	situation_three_type_b(t_list **stack_a, t_list **stack_b,
-			int bottom_a_value, int bottom_b_value);
-int		add_stacka_typea(t_list **stack_a, t_list **stack_b, int median);
-int		add_stacka_typeb(t_list **stack_a, t_list **stack_b, int back_pos,
-			int median);
-int		quit_thesort_typea(t_list **stack_a, t_list **stack_b, int median);
-int		quit_thesort_typeb(t_list **stack_a, t_list **stack_b, int median);
-void	finish_the_sort(t_list **stack_a, t_list **stack_b);
+void	bigstacks_sort(t_list **stack_a, t_list **stack_b);
+void	magic_sort_3(t_list **stack_a);
 
 #endif

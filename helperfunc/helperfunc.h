@@ -6,7 +6,7 @@
 /*   By: sagemura <sagemura@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/02 01:03:03 by sagemura          #+#    #+#             */
-/*   Updated: 2023/11/03 20:10:42 by sagemura         ###   ########.fr       */
+/*   Updated: 2023/11/11 18:50:07 by sagemura         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,5 +31,6 @@ void	free_split(char **args);
 int		ft_lstsize(t_list **stack);
 int		front_size(t_list **stack_b);
 int		back_size(t_list **stack_b);
+t_list	*copy_list(t_list **stack);
 
 #endif
