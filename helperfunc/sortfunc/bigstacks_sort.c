@@ -6,7 +6,7 @@
 /*   By: sagemura <sagemura@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/11 13:19:08 by sagemura          #+#    #+#             */
-/*   Updated: 2023/11/13 20:02:00 by sagemura         ###   ########.fr       */
+/*   Updated: 2023/11/15 19:52:29 by sagemura         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -128,27 +128,19 @@ void	bigstacks_sort(t_list **stack_a, t_list **stack_b)
 	find_stop_pos(array, flag, size, stop_pos);
 	i = 0;
 	flag_n = 1;
-	printf("stop_pos: %d\n", stop_pos);
-	printf("flag: %d\n", flag[flag_n][0]);
-	print_stacks(stack_a);
 	while (*stack_a)
 	{
 		if (flag[flag_n][0] >= (*stack_a)->value)
 		{
-			printf("stack_a:%d\n", (*stack_a)->value);
 			ft_pb(stack_a, stack_b);
 			if ((*stack_b)->value > flag[flag_n][1])
 				ft_rb(stack_b);
-			printf("flag: %d\n", flag[flag_n][0]);
-			printf("flag2: %d\n", flag[flag_n][1]);
 			i++;
 		}
 		else
 		{
 			if (flag[flag_n] && flag[flag_n][0] == i)
 			{
-				printf("stack_a:%d\n", (*stack_a)->value);
-				printf("flag: %d\n", flag[flag_n][0]);
 				if (flag[flag_n + 1] != NULL)
 					flag_n++;
 				else
@@ -157,44 +149,15 @@ void	bigstacks_sort(t_list **stack_a, t_list **stack_b)
 					{
 						if ((*stack_b)->value > flag[flag_n][0] + stop_pos / 2)
 							ft_rb(stack_b);
-						printf("flag: %d\n", flag[flag_n][0] + stop_pos / 2);
 						ft_pb(stack_a, stack_b);
 					}
 					break ;
 				}
-				printf("flag: %d\n", flag[flag_n][0]);
-				print_stacks(stack_a);
-				print_stacks(stack_b);
 			}
-			else
-				ft_ra(stack_a);
 		}
+		ft_ra(stack_a);
 	}
-	print_stacks(stack_b);
-	i = 0;
-	while (flag[flag_n][0] < mv_last(*stack_b)->value)
-	{
-		ft_rrb(stack_b);
-		if ((*stack_b)->value == find_max_node(*stack_b))
-		{
-			ft_pa(stack_a, stack_b);
-			i++;
-		}
-	}
-	while (i != 20)
-	{
-		printf("stack_b:%d\n", (*stack_b)->value);
-		while ((*stack_b)->value != find_max_node(*stack_b))
-			ft_rb(stack_b);
-		printf("find_max_node: %d\n", find_max_node(*stack_b));
-		print_stacks(stack_a);
-		print_stacks(stack_b);
-		ft_pa(stack_a, stack_b);
-		i++;
-	}
-	printf("flag: %d\n", flag[flag_n][0]);
-	print_stacks(stack_b);
-	print_stacks(stack_a);
+	finish_bigstacks_sort(stack_a, stack_b, flag, flag_n);
 	i = 0;
 	while (i <= 10)
 	{
