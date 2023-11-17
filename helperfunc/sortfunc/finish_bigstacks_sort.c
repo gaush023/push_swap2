@@ -6,14 +6,14 @@
 /*   By: sagemura <sagemura@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/11 13:19:08 by sagemura          #+#    #+#             */
-/*   Updated: 2023/11/15 19:31:03 by sagemura         ###   ########.fr       */
+/*   Updated: 2023/11/17 18:40:31 by sagemura         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "sortfunc.h"
 #include <stdio.h>
 
-int	find_max_pos(t_list **stacks)
+static int	find_max_pos(t_list **stacks)
 {
 	t_list	*tmp;
 	int		stacks_size;
@@ -56,11 +56,16 @@ static void	finish_bigstacks_sort_helper(t_list **stack_a, t_list **stack_b)
 	}
 }
 
-void	finish_bigstacks_sort(t_list **stack_a, t_list **stack_b, int **flag,
-		int flag_n)
+void	finish_bigstacks_sort(t_list **stack_a, t_list **stack_b, int **flag)
 {
 	int	max_pos;
+	int	flag_n;
 
+	flag_n = 0;
+	while (flag[flag_n] != NULL && flag[flag_n + 1] != NULL)
+	{
+		flag_n++;
+	}
 	while (*stack_b)
 	{
 		while (flag[flag_n][0] < mv_last(*stack_b)->value
