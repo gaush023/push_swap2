@@ -34,6 +34,7 @@ void	ft_rrr(t_list **stack_a, t_list **stack_b);
 void	execute_sort(t_list **stack_a, t_list **stack_b);
 void	bigstacks_sort(t_list **stack_a, t_list **stack_b);
 void	magic_sort_3(t_list **stack_a);
+void	magic_sort_5(t_list **stack_a, t_list **stack_b);
 void	finish_bigstacks_sort(t_list **stack_a, t_list **stack_b, int **flag);
 void	set_stacksb(t_list **stack_a, t_list **stack_b, int **flag,
 			int stop_pos);
