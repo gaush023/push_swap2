@@ -6,7 +6,7 @@
 /*   By: sagemura <sagemura@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/11 13:19:08 by sagemura          #+#    #+#             */
-/*   Updated: 2023/11/17 18:40:31 by sagemura         ###   ########.fr       */
+/*   Updated: 2023/11/21 20:08:35 by sagemura         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,9 @@ void	finish_bigstacks_sort(t_list **stack_a, t_list **stack_b, int **flag)
 			if (max_pos > 0)
 			{
 				while ((*stack_b)->value != find_max_node(*stack_b))
+				{
 					ft_rb(stack_b);
+				}
 			}
 			else
 			{

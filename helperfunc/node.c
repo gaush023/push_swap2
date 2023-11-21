@@ -6,7 +6,7 @@
 /*   By: sagemura <sagemura@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/08 14:43:50 by sagemura          #+#    #+#             */
-/*   Updated: 2023/11/03 20:10:28 by sagemura         ###   ########.fr       */
+/*   Updated: 2023/11/21 19:29:37 by sagemura         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ t_list	*ft_lstnew(int value)
 	new->value = value;
 	new->index = -1;
 	new->next = NULL;
+	new->prev = NULL;
 	return (new);
 }
 
@@ -87,4 +88,3 @@ int	front_size(t_list **stack_b)
 	}
 	return (n);
 }
-
