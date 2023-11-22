@@ -6,7 +6,7 @@
 /*   By: sagemura <sagemura@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 23:49:44 by sagemura          #+#    #+#             */
-/*   Updated: 2023/11/21 21:37:34 by sagemura         ###   ########.fr       */
+/*   Updated: 2023/11/22 17:03:02 by sagemura         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,8 @@ static void	find_two_max(t_list **stacks, int *flag)
 	if (ft_lstsize(stacks) == 4)
 	{
 		flag[0] = find_max_node(*stacks);
+		flag[1] = 0;
+		flag[2] = 0;
 		return ;
 	}
 	max = find_max_node(*stacks);
@@ -75,17 +77,14 @@ void	magic_sort_5(t_list **stack_a, t_list **stack_b)
 		else
 			ft_ra(stack_a);
 	}
-	// print_stacks(stack_a, stack_b);
 	if (!is_sorted(stack_a))
 		magic_sort_3(stack_a);
-	// print_stacks(stack_a, stack_b);
-	if ((*stack_b)->value < (*stack_b)->next->value && (*stack_b)->next != NULL)
+	if (ft_lstsize(stack_b) == 2 && (*stack_b)->value < (*stack_b)->next->value)
 		ft_sb(stack_b);
 	ft_pa(stack_a, stack_b);
 	if (*stack_b)
 		ft_pa(stack_a, stack_b);
 	while ((*stack_a)->value != find_min_node(*stack_a))
 		ft_ra(stack_a);
-	// print_stacks(stack_a, stack_b);
 	free(flag);
 }

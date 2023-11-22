@@ -6,7 +6,7 @@
 /*   By: sagemura <sagemura@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/02 00:43:44 by sagemura          #+#    #+#             */
-/*   Updated: 2023/10/02 00:56:11 by sagemura         ###   ########.fr       */
+/*   Updated: 2023/11/22 18:19:39 by sagemura         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,11 +69,13 @@ static void	free_result_array(char **result, int count)
 char	**ft_split(char const *str, char c)
 {
 	size_t	word_count;
-	char	**res;
 	size_t	n;
+	char	**res;
 	char	*word_start;
 	char	*word_end;
 
+	if (str == NULL)
+		return (NULL);
 	word_count = g_wc(str, c);
 	res = malloc(sizeof(char *) * (word_count + 1));
 	if (res == NULL)

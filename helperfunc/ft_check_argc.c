@@ -6,7 +6,7 @@
 /*   By: sagemura <sagemura@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/01 00:30:42 by sagemura          #+#    #+#             */
-/*   Updated: 2023/11/22 15:21:34 by sagemura         ###   ########.fr       */
+/*   Updated: 2023/11/22 18:30:52 by sagemura         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,9 +46,11 @@ static int	check_maximamu(long tmp, char **args, int i)
 	return (0);
 }
 
-static int	ft_help_check_argc(long tmp, char **args, int i)
+static int	check_args(long tmp, char **args, int i)
 {
 	if (!ft_isnum(args[i]))
+		return (-1);
+	if (args[i][0] == '\0')
 		return (-1);
 	if (ft_check_duplication(tmp, args, i))
 		return (-1);
@@ -67,7 +69,11 @@ int	ft_check_argc(int argc, char **argv)
 	if (argc < 2)
 		return (-1);
 	else if (argc == 2)
+	{
+		if (argv[1][0] == '\0')
+			return (-1);
 		args = ft_split(argv[1], ' ');
+	}
 	else
 	{
 		i = 1;
@@ -76,7 +82,7 @@ int	ft_check_argc(int argc, char **argv)
 	while (args[i])
 	{
 		tmp = ft_atoi(args[i]);
-		if (ft_help_check_argc(tmp, args, i) == -1)
+		if (check_args(tmp, args, i) == -1)
 			return (-1);
 		i++;
 	}
@@ -84,8 +90,3 @@ int	ft_check_argc(int argc, char **argv)
 		free_split(args);
 	return (0);
 }
-
-//  int main(int argc, char **argv)
-//  {
-// 		printf("%d\n", ft_check_argc(argc, argv));
-//  }
