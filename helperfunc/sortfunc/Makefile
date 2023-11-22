@@ -6,12 +6,14 @@
 #    By: sagemura <sagemura@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/02 00:17:25 by sagemura          #+#    #+#              #
-#    Updated: 2023/11/11 13:14:32 by sagemura         ###   ########.fr        #
+#    Updated: 2023/11/22 15:51:18 by sagemura         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = sortfunc.a
-SRCS =   helper_sort.c operation.c operation_2.c operation_3.c \
+SRCS =   helper_sort.c operation.c operation_2.c operation_3.c execute_sort.c\
+		 bigstacks_sort.c magic_sort_5.c magic_sort_3.c finish_bigstacks_sort.c\
+		 set_stacksb.c\
 
 
 OBJS = $(SRCS:.c=.o)

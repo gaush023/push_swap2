@@ -6,7 +6,7 @@
 /*   By: sagemura <sagemura@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/01 00:30:42 by sagemura          #+#    #+#             */
-/*   Updated: 2023/10/24 23:07:47 by sagemura         ###   ########.fr       */
+/*   Updated: 2023/11/22 15:21:34 by sagemura         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,12 +26,12 @@ static int	ft_check_duplication(int num, char **argv, int i)
 
 static int	check_maximamu(long tmp, char **args, int i)
 {
-	int j;
+	int	j;
 
 	j = 0;
 	while (args[i][j])
-			j++;
-	if(tmp < 0 || args[i][0] == '+')
+		j++;
+	if (tmp < 0 || args[i][0] == '+')
 	{
 		if (j > 11)
 			return (1);
@@ -40,7 +40,7 @@ static int	check_maximamu(long tmp, char **args, int i)
 	{
 		if (j > 10)
 			return (1);
-	}		
+	}
 	if (tmp > INT_MAX || tmp < INT_MIN)
 		return (1);
 	return (0);
@@ -87,5 +87,5 @@ int	ft_check_argc(int argc, char **argv)
 
 //  int main(int argc, char **argv)
 //  {
-// 	 printf("%d\n", ft_check_argc(argc, argv));
+// 		printf("%d\n", ft_check_argc(argc, argv));
 //  }
