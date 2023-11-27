@@ -6,12 +6,11 @@
 /*   By: sagemura <sagemura@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 23:49:44 by sagemura          #+#    #+#             */
-/*   Updated: 2023/10/24 23:15:28 by sagemura         ###   ########.fr       */
+/*   Updated: 2023/11/27 18:32:27 by sagemura         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "sortfunc.h"
-
 
 static void	sort_min_type(t_list **stack_a)
 {

@@ -6,7 +6,7 @@
 /*   By: sagemura <sagemura@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 23:50:14 by sagemura          #+#    #+#             */
-/*   Updated: 2023/11/15 19:29:03 by sagemura         ###   ########.fr       */
+/*   Updated: 2023/11/27 18:32:08 by sagemura         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,4 +58,3 @@ int	find_median(t_list **stack_b)
 	}
 	return (tmp->value);
 }
-

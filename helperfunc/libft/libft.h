@@ -6,7 +6,7 @@
 /*   By: sagemura <sagemura@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/01 00:38:37 by sagemura          #+#    #+#             */
-/*   Updated: 2023/10/24 22:50:47 by sagemura         ###   ########.fr       */
+/*   Updated: 2023/11/27 15:41:27 by sagemura         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 # include <unistd.h>
 
 size_t		ft_strlen(const char *s);
-long			ft_atoi(const char *str);
+long		ft_atoi(const char *str);
 int			ft_isnum(const char *str);
 const char	*ft_strchr(const char *str, int c);
 void		*ft_memcpy(void *restrict dest, const void *restrict src, size_t n);

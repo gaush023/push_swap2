@@ -38,5 +38,8 @@ void	magic_sort_5(t_list **stack_a, t_list **stack_b);
 void	finish_bigstacks_sort(t_list **stack_a, t_list **stack_b, int **flag);
 void	set_stacksb(t_list **stack_a, t_list **stack_b, int **flag,
 			int stop_pos);
+void	find_stop_pos(int *array, int **flag, int size, int stop_pos);
+int		transform_int(t_list **stacks, int *array);
+int		find_stack_pos(t_list **stack_a, int **flag, int flag_n);
 
 #endif
