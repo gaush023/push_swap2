@@ -6,9 +6,11 @@
 /*   By: sagemura <sagemura@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/01 00:30:42 by sagemura          #+#    #+#             */
-/*   Updated: 2023/11/22 18:30:52 by sagemura         ###   ########.fr       */
+/*   Updated: 2024/01/05 15:29:23 by sagemura         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "helperfunc.h"
 
 #include "helperfunc.h"
 
@@ -59,6 +61,18 @@ static int	check_args(long tmp, char **args, int i)
 	return (0);
 }
 
+static int	ft_check_helper(char **args, int i, long tmp)
+{
+	while (args[i])
+	{
+		tmp = ft_atoi(args[i]);
+		if (check_args(tmp, args, i) == -1)
+			return (-1);
+		i++;
+	}
+	return (0);
+}
+
 int	ft_check_argc(int argc, char **argv)
 {
 	int		i;
@@ -66,6 +80,7 @@ int	ft_check_argc(int argc, char **argv)
 	char	**args;
 
 	i = 0;
+	tmp = 0;
 	if (argc < 2)
 		return (-1);
 	else if (argc == 2)
@@ -79,13 +94,8 @@ int	ft_check_argc(int argc, char **argv)
 		i = 1;
 		args = argv;
 	}
-	while (args[i])
-	{
-		tmp = ft_atoi(args[i]);
-		if (check_args(tmp, args, i) == -1)
-			return (-1);
-		i++;
-	}
+	if (ft_check_helper(args, i, tmp) == -1)
+		return (-1);
 	if (argc == 2)
 		free_split(args);
 	return (0);

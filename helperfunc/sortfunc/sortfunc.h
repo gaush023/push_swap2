@@ -38,5 +38,8 @@ void	magic_sort_5(t_list **stack_a, t_list **stack_b);
 void	finish_bigstacks_sort(t_list **stack_a, t_list **stack_b, int **flag);
 void	set_stacksb(t_list **stack_a, t_list **stack_b, int **flag,
 			int stop_pos);
+int		allocate_array_memory(int **array, int size);
+int		allocate_flag_memory(int ***flag);
+void	delete_memory(int **flag, int *array);
 
 #endif

@@ -6,33 +6,21 @@
 /*   By: sagemura <sagemura@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 23:49:44 by sagemura          #+#    #+#             */
-/*   Updated: 2023/11/22 17:03:02 by sagemura         ###   ########.fr       */
+/*   Updated: 2024/01/05 16:06:35 by sagemura         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "sortfunc.h"
 
-// void	print_stacks(t_list **stack_a, t_list **stack_b)
-// {
-// 	t_list	*tmp;
-
-// 	tmp = *stack_a;
-// 	printf("stack_a: ");
-// 	while (tmp)
-// 	{
-// 		printf("%d ", tmp->value);
-// 		tmp = tmp->next;
-// 	}
-// 	printf("\n");
-// 	tmp = *stack_b;
-// 	printf("stack_b: ");
-// 	while (tmp)
-// 	{
-// 		printf("%d ", tmp->value);
-// 		tmp = tmp->next;
-// 	}
-// 	printf("\n");
-// }
+static void	find_two_max_helper(t_list **stacks, int *flag)
+{
+	{
+		flag[0] = find_max_node(*stacks);
+		flag[1] = 0;
+		flag[2] = 0;
+		return ;
+	}
+}
 
 static void	find_two_max(t_list **stacks, int *flag)
 {
@@ -42,12 +30,7 @@ static void	find_two_max(t_list **stacks, int *flag)
 
 	tmp = *stacks;
 	if (ft_lstsize(stacks) == 4)
-	{
-		flag[0] = find_max_node(*stacks);
-		flag[1] = 0;
-		flag[2] = 0;
-		return ;
-	}
+		return (find_two_max_helper(stacks, flag));
 	max = find_max_node(*stacks);
 	if (tmp->value != max)
 		second_max = tmp->value;

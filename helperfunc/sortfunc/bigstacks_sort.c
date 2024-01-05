@@ -6,12 +6,11 @@
 /*   By: sagemura <sagemura@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/11 13:19:08 by sagemura          #+#    #+#             */
-/*   Updated: 2023/11/17 18:51:28 by sagemura         ###   ########.fr       */
+/*   Updated: 2024/01/05 18:03:26 by sagemura         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "sortfunc.h"
-#include <stdio.h>
 
 int	transform_int(t_list **stacks, int *array)
 {
@@ -82,47 +81,18 @@ void	bigstacks_sort(t_list **stack_a, t_list **stack_b)
 	int	*array;
 	int	size;
 	int	stop_pos;
-	int	i;
 
-	array = (int *)malloc(sizeof(int) * ft_lstsize(stack_a) + 1);
-	if (!array)
-	{
-		free(array);
+	if (allocate_array_memory(&array, ft_lstsize(stack_a)) == -1)
 		return ;
-	}
 	size = transform_int(stack_a, array);
 	if (ft_lstsize(stack_a) > 20)
 		stop_pos = ft_lstsize(stack_a) / 5;
 	else
 		stop_pos = ft_lstsize(stack_a) / 2;
-	flag = (int **)malloc(sizeof(int *) * 11);
-	if (!flag)
-	{
-		free(array);
-		return ;
-	}
-	i = 0;
-	while (i <= 11)
-	{
-		flag[i] = (int *)malloc(sizeof(int));
-		if (!flag[i])
-		{
-			while (i-- > 0)
-				free(flag[i]);
-			free(flag);
-			return ;
-		}
-		i++;
-	}
+	if (allocate_flag_memory(&flag) == -1)
+		return (free(array));
 	find_stop_pos(array, flag, size, stop_pos);
 	set_stacksb(stack_a, stack_b, flag, stop_pos);
 	finish_bigstacks_sort(stack_a, stack_b, flag);
-	i = 0;
-	while (i <= 10)
-	{
-		free(flag[i]);
-		i++;
-	}
-	free(flag);
-	free(array);
+	delete_memory(flag, array);
 }

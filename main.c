@@ -6,7 +6,7 @@
 /*   By: sagemura <sagemura@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/13 02:36:23 by sagemura          #+#    #+#             */
-/*   Updated: 2023/11/22 20:05:55 by sagemura         ###   ########.fr       */
+/*   Updated: 2024/01/05 15:37:18 by sagemura         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,6 @@ static void	create_stacks(t_list **stack, int argc, char **argv)
 	if (argc == 2)
 		free_split(args);
 }
-
 
 int	main(int argc, char *argv[])
 {

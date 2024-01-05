@@ -1,38 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   delete_memory.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sagemura <sagemura@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/01 00:41:07 by sagemura          #+#    #+#             */
-/*   Updated: 2024/01/05 15:37:57 by sagemura         ###   ########.fr       */
+/*   Created: 2024/01/05 17:30:10 by sagemura          #+#    #+#             */
+/*   Updated: 2024/01/05 18:01:01 by sagemura         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "sortfunc.h"
 
-long	ft_atoi(const char *str)
+void	delete_memory(int **flag, int *array)
 {
-	long	i;
-	int		sign;
-	long	res;
+	int	i;
 
 	i = 0;
-	sign = 1;
-	res = 0;
-	while (str[i] == ' ' || (str[i] >= '\t' && str[i] <= '\r'))
-		i++;
-	if (str[i] == '+' || str[i] == '-')
+	while (i <= 10)
 	{
-		if (str[i] == '-')
-			sign = sign * -1;
+		free(flag[i]);
 		i++;
 	}
-	while (str[i] >= '0' && str[i] <= '9')
-	{
-		res = (res * 10) + (str[i] - '0');
-		i++;
-	}
-	return (res * sign);
+	free(flag);
+	free(array);
 }
