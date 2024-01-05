@@ -41,5 +41,6 @@ void	set_stacksb(t_list **stack_a, t_list **stack_b, int **flag,
 int		allocate_array_memory(int **array, int size);
 int		allocate_flag_memory(int ***flag);
 void	delete_memory(int **flag, int *array);
+int		find_stack_pos(t_list **stack_a, int **flag, int flag_n);
 
 #endif

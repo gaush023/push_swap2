@@ -6,7 +6,7 @@
 /*   By: sagemura <sagemura@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/11 13:19:08 by sagemura          #+#    #+#             */
-/*   Updated: 2024/01/05 18:03:26 by sagemura         ###   ########.fr       */
+/*   Updated: 2024/01/05 18:59:31 by sagemura         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,15 +37,13 @@ void	ft_swap(int *a, int *b)
 	*b = tmp;
 }
 
-void	find_stop_pos(int *array, int **flag, int size, int stop_pos)
+void	sort_array(int *array, int size)
 {
 	int	i;
 	int	j;
 	int	min_idx;
-	int	flag_n;
 
 	i = 0;
-	flag_n = 0;
 	j = i + 1;
 	while (i < size - 1)
 	{
@@ -61,7 +59,15 @@ void	find_stop_pos(int *array, int **flag, int size, int stop_pos)
 			ft_swap(&array[min_idx], &array[i]);
 		i++;
 	}
+}
+
+void	set_flags(int **flag, int *array, int size, int stop_pos)
+{
+	int	i;
+	int	flag_n;
+
 	i = 0;
+	flag_n = 0;
 	while (i < size)
 	{
 		if (i % stop_pos == 0)
@@ -91,7 +97,8 @@ void	bigstacks_sort(t_list **stack_a, t_list **stack_b)
 		stop_pos = ft_lstsize(stack_a) / 2;
 	if (allocate_flag_memory(&flag) == -1)
 		return (free(array));
-	find_stop_pos(array, flag, size, stop_pos);
+	sort_array(array, size);
+	set_flags(flag, array, size, stop_pos);
 	set_stacksb(stack_a, stack_b, flag, stop_pos);
 	finish_bigstacks_sort(stack_a, stack_b, flag);
 	delete_memory(flag, array);
